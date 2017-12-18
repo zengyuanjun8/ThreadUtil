@@ -1,6 +1,10 @@
 package com.zyj.exception.util;
 
-
+/**
+ * 默认异常格式化工具
+ * @author zengyuanjun
+ *
+ */
 public class DefaultExceptionMsgHandler implements ExceptionMessageFormat {
 
 	private DefaultExceptionMsgHandler() {
@@ -14,6 +18,9 @@ public class DefaultExceptionMsgHandler implements ExceptionMessageFormat {
 		return SingletonHolder.instance;
 	}
 	
+	/**
+	 * 格式化异常信息
+	 */
 	@Override
 	public String formate(Exception e) {
 		return e.getMessage() + "\n";
