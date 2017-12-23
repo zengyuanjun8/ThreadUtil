@@ -1,53 +1,37 @@
 package com.zyj.thread.parallel;
 
-import java.util.concurrent.CountDownLatch;
-
-import com.zyj.exception.ChildThreadException;
-
 /**
- * ²¢ĞĞÏß³ÌÈÎÎñ£¬¼ÇÂ¼ÈÎÎñÔËĞĞÊ±µÄĞÅÏ¢
+ * å¹¶è¡Œçº¿ç¨‹å¯¹è±¡
  * 
  * @author zengyuanjun
  *
  */
 public class MultiParallelRunnable implements Runnable {
 	/**
-	 * ÔËĞĞµÄÈÎÎñ
+	 * å¹¶è¡Œä»»åŠ¡å‚æ•°
 	 */
-	private Runnable task;
-	/**
-	 * ×ÓÏß³Ìµ¹¼ÆÊıËø£¬ÓÃÓÚÍ¨ÖªÖ÷Ïß³ÌÖ´ĞĞÈÎÎñ
-	 */
-	private CountDownLatch childLatch;
-	/**
-	 * ×ÓÏß³ÌÒì³££¬ÓÃÓÚ¼ÇÂ¼×ÓÏß³ÌµÄÒì³£
-	 */
-	private ChildThreadException exception;
+	private MultiParallelContext context;
 
 	/**
-	 * ¹¹ÔìÆ÷
-	 * @param task ÈÎÎñ
-	 * @param e ×ÓÏß³ÌÒì³£
-	 * @param childLatch µ¹¼ÆÊıËø
+	 * æ„é€ å‡½æ•°
+	 * @param context
 	 */
-	public MultiParallelRunnable(Runnable task, ChildThreadException e, CountDownLatch childLatch) {
-		this.task = task;
-		this.childLatch = childLatch;
-		this.exception = e;
+	public MultiParallelRunnable(MultiParallelContext context) {
+		this.context = context;
 	}
 
 	/**
-	 * ÔËĞĞÈÎÎñ£¬¼ÇÂ¼Òì³££¬Ëø¼ÆÊı¼õÉÙ
+	 * è¿è¡Œä»»åŠ¡
 	 */
 	@Override
 	public void run() {
 		try {
-			task.run();
+			context.getTask().run();
 		} catch (Exception e) {
 			e.printStackTrace();
-			exception.addException(e);
+			context.getChildException().addException(e);
 		} finally {
-			childLatch.countDown();
+			context.getChildLatch().countDown();
 		}
 	}
 	

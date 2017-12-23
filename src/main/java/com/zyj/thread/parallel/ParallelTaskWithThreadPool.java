@@ -2,8 +2,11 @@ package com.zyj.thread.parallel;
 
 import java.util.concurrent.ExecutorService;
 
-import com.zyj.exception.ChildThreadException;
-
+/**
+ * 使用线程池运行并行任务
+ * @author zengyuanjun
+ *
+ */
 public class ParallelTaskWithThreadPool extends MultiParallelThreadHandler {
 	private ExecutorService service;
 	
@@ -22,6 +25,9 @@ public class ParallelTaskWithThreadPool extends MultiParallelThreadHandler {
 		this.service = service;
 	}
 
+	/**
+	 * 使用线程池运行
+	 */
 	@Override
 	protected void invoke(Runnable command) {
 		if(null != service){
@@ -29,11 +35,6 @@ public class ParallelTaskWithThreadPool extends MultiParallelThreadHandler {
 		}else{
 			super.invoke(command);
 		}
-	}
-
-	@Override
-	protected void childExceptionHandler(ChildThreadException e) throws ChildThreadException {
-		System.out.println("roll back!");
 	}
 
 }

@@ -1,7 +1,7 @@
 package com.zyj.exception.util;
 
 /**
- * ¸ñÊ½»¯Òì³£ĞÅÏ¢
+ * å¼‚å¸¸ä¿¡æ¯æ ¼å¼åŒ–
  * @author Administrator
  *
  */

@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 import com.zyj.exception.ChildThreadException;
 
 /**
- * ´¦Àí²¢ĞĞÏß³ÌÈÎÎñ£¬run·½·¨½«µÈ´ıÈÎÎñÁĞ±íÖĞËùÓĞÈÎÎñ´¦ÀíÍê³É
+ * å¹¶è¡Œä»»åŠ¡å¤„ç†å·¥å…·
  * 
  * @author zengyuanjun
  *
@@ -13,14 +13,14 @@ import com.zyj.exception.ChildThreadException;
 public class MultiParallelThreadHandler extends AbstractMultiParallelThreadHandler {
 
 	/**
-	 * ÎŞ²Î¹¹ÔìÆ÷
+	 * æ— å‚æ„é€ å™¨
 	 */
 	public MultiParallelThreadHandler() {
 		super();
 	}
 
 	/**
-	 * ÔËĞĞÈÎÎñÁĞ±íÖĞËùÓĞÈÎÎñ£¬²¢µÈ´ı´¦ÀíÍê³É
+	 * æ ¹æ®ä»»åŠ¡æ•°é‡è¿è¡Œä»»åŠ¡
 	 */
 	@Override
 	public void run() throws ChildThreadException {
@@ -34,7 +34,7 @@ public class MultiParallelThreadHandler extends AbstractMultiParallelThreadHandl
 	}
 
 	/**
-	 * ĞÂ½¨Ïß³ÌÔËĞĞÈÎÎñ
+	 * æ–°å»ºçº¿ç¨‹è¿è¡Œä»»åŠ¡
 	 * 
 	 * @throws ChildThreadException
 	 */
@@ -42,7 +42,7 @@ public class MultiParallelThreadHandler extends AbstractMultiParallelThreadHandl
 		childLatch = new CountDownLatch(taskList.size());
 		childThreadException.clearExceptionList();
 		for (Runnable task : taskList) {
-			invoke(new MultiParallelRunnable(task, childThreadException, childLatch));
+			invoke(new MultiParallelRunnable(new MultiParallelContext(task, childLatch, childThreadException)));
 		}
 		taskList.clear();
 		try {
@@ -54,7 +54,7 @@ public class MultiParallelThreadHandler extends AbstractMultiParallelThreadHandl
 	}
 
 	/**
-	 * ¾ßÌåÖ´ĞĞµÄ·½·¨
+	 * é»˜è®¤çº¿ç¨‹æ‰§è¡Œæ–¹æ³•
 	 * 
 	 * @param command
 	 */
@@ -67,7 +67,7 @@ public class MultiParallelThreadHandler extends AbstractMultiParallelThreadHandl
 	}
 
 	/**
-	 * ²»ĞÂ½¨Ïß³Ì£¬Ö±½ÓÔÚµ±Ç°Ïß³ÌÔËĞĞ
+	 * åœ¨å½“å‰çº¿ç¨‹ä¸­ç›´æ¥è¿è¡Œ
 	 * 
 	 * @throws ChildThreadException
 	 */
@@ -81,7 +81,7 @@ public class MultiParallelThreadHandler extends AbstractMultiParallelThreadHandl
 	}
 
 	/**
-	 * ÊÇ·ñÓĞÒì³£ĞèÒªÅ×³ö
+	 * æ ¹æ®éœ€è¦æŠ›å‡ºå­çº¿ç¨‹å¼‚å¸¸
 	 * 
 	 * @throws ChildThreadException
 	 */
@@ -92,8 +92,8 @@ public class MultiParallelThreadHandler extends AbstractMultiParallelThreadHandl
 	}
 
 	/**
-	 * ×ÓÏß³ÌÒì³£´¦Àí£¬Ä¬ÈÏÖ±½ÓÅ×³ö
-	 * @param e ×ÓÏß³ÌÒì³£
+	 * é»˜è®¤æŠ›å‡ºå­çº¿ç¨‹å¼‚å¸¸
+	 * @param e 
 	 * @throws ChildThreadException
 	 */
 	protected void childExceptionHandler(ChildThreadException e) throws ChildThreadException {

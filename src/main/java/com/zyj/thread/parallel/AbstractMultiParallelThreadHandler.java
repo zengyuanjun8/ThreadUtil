@@ -8,22 +8,22 @@ import com.zyj.exception.ChildThreadException;
 import com.zyj.thread.MultiThreadHandler;
 
 /**
- * ´¦Àí²¢ĞĞÏß³ÌÈÎÎñ
+ * å¹¶è¡Œçº¿ç¨‹å¤„ç†
  * @author zengyuanjun
  */
 public abstract class AbstractMultiParallelThreadHandler implements MultiThreadHandler {
 	/**
-	 * µ¹¼ÆÊıËø£¬ÅĞ¶ÏÊÇ·ñËùÓĞÈÎÎñÏß³ÌÖ´ĞĞ½áÊø
+	 * å­çº¿ç¨‹å€’è®¡æ•°é”
 	 */
 	protected CountDownLatch childLatch;
 	
 	/**
-	 * ÈÎÎñÁĞ±í£¬±£´æËùÓĞÈÎÎñ
+	 * ä»»åŠ¡åˆ—è¡¨
 	 */
 	protected List<Runnable> taskList;
 	
 	/**
-	 * ¼ÇÂ¼×ÓÏß³ÌÒì³£
+	 * å­çº¿ç¨‹å¼‚å¸¸
 	 */
 	protected ChildThreadException childThreadException;
 

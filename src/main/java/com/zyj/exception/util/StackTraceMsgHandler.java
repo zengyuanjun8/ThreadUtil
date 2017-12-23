@@ -1,7 +1,7 @@
 package com.zyj.exception.util;
 
 /**
- * ¶ÑÕ»¸ú×ÙĞÅÏ¢¸ñÊ½»¯¹¤¾ß
+ * å †æ ˆè·Ÿè¸ªä¿¡æ¯æ ¼å¼åŒ–å·¥å…·
  * @author zengyuanjun
  *
  */
@@ -19,7 +19,7 @@ public class StackTraceMsgHandler implements ExceptionMessageFormat {
 	}
 
 	/**
-	 * ¸ñÊ½»¯¶ÑÕ»¸ú×ÙĞÅÏ¢
+	 * æ ¼å¼åŒ–å †æ ˆè·Ÿè¸ªä¿¡æ¯
 	 */
 	@Override
 	public String formate(Exception e) {

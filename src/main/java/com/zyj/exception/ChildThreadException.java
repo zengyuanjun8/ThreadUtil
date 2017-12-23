@@ -10,7 +10,7 @@ import com.zyj.exception.util.ExceptionMessageFormat;
 import com.zyj.exception.util.factory.ExceptionMsgFormatFactory;
 
 /**
- * ×ÓÏß³ÌÒì³££¬µ±×ÓÏß³Ì³öÏÖÒì³£Ê±Å×³ö
+ * å­çº¿ç¨‹å¼‚å¸¸ï¼Œå­çº¿ç¨‹å‡ºç°å¼‚å¸¸æ—¶æŠ›å‡º
  * @author zengyuanjun
  */
 public class ChildThreadException extends Exception {
@@ -20,15 +20,15 @@ public class ChildThreadException extends Exception {
 	 */
 	private static final long serialVersionUID = 5682825039992529875L;
 	/**
-	 * ×ÓÏß³ÌÒì³£ÁĞ±í
+	 * å­çº¿ç¨‹çš„å¼‚å¸¸åˆ—è¡¨
 	 */
 	private List<Exception> exceptionList;
 	/**
-	 * Òì³£ĞÅÏ¢¸ñÊ½»¯¹¤¾ß
+	 * å¼‚å¸¸ä¿¡æ¯æ ¼å¼åŒ–å·¥å…·
 	 */
 	private ExceptionMessageFormat formatter;
 	/**
-	 * Ëø
+	 * é”
 	 */
 	private Lock lock;
 
@@ -54,7 +54,7 @@ public class ChildThreadException extends Exception {
 	}
 
 	/**
-	 * ÊÇ·ñÓĞÒì³£
+	 * å­çº¿ç¨‹æ˜¯å¦æœ‰å¼‚å¸¸
 	 * @return
 	 */
 	public boolean hasException() {
@@ -62,7 +62,7 @@ public class ChildThreadException extends Exception {
 	}
 
 	/**
-	 * Ìí¼ÓÒì³£µ½×ÓÏß³ÌÒì³£ÁĞ±í
+	 * æ·»åŠ å­çº¿ç¨‹çš„å¼‚å¸¸
 	 * @param e
 	 */
 	public void addException(Exception e) {
@@ -76,7 +76,7 @@ public class ChildThreadException extends Exception {
 	}
 
 	/**
-	 * »ñÈ¡×ÓÏß³ÌÒì³£ÁĞ±í
+	 * è·å–å­çº¿ç¨‹çš„å¼‚å¸¸åˆ—è¡¨
 	 * @return
 	 */
 	public List<Exception> getExceptionList() {
@@ -84,14 +84,14 @@ public class ChildThreadException extends Exception {
 	}
 
 	/**
-	 * Çå¿Õ×ÓÏß³ÌÒì³£ÁĞ±í
+	 * æ¸…æ¥šå­çº¿ç¨‹çš„å¼‚å¸¸åˆ—è¡¨
 	 */
 	public void clearExceptionList() {
 		exceptionList.clear();
 	}
 
 	/**
-	 * »ñÈ¡ËùÓĞ×ÓÏß³ÌÒì³£ÁĞ±íÖĞÒì³£µÄ¶ÑÕ»¸ú×ÙĞÅÏ¢
+	 * è·å–æ‰€æœ‰å­çº¿ç¨‹å¼‚å¸¸çš„å †æ ˆè·Ÿè¸ªä¿¡æ¯
 	 * @return
 	 */
 	public String getAllStackTraceMessage() {
@@ -107,14 +107,14 @@ public class ChildThreadException extends Exception {
 	}
 
 	/**
-	 * ´òÓ¡ËùÓĞ×ÓÏß³ÌÒì³£ÁĞ±íÖĞÒì³£µÄ¶ÑÕ»¸ú×ÙĞÅÏ¢
+	 * æ‰“å°æ‰€æœ‰å­çº¿ç¨‹çš„å¼‚å¸¸çš„å †æ ˆè·Ÿè¸ªä¿¡æ¯
 	 */
 	public void printAllStackTrace() {
 		printAllStackTrace(System.err);
 	}
 
 	/**
-	 * ´òÓ¡ËùÓĞ×ÓÏß³ÌÒì³£ÁĞ±íÖĞÒì³£µÄ¶ÑÕ»¸ú×ÙĞÅÏ¢
+	 * æ‰“å°æ‰€æœ‰å­çº¿ç¨‹çš„å¼‚å¸¸çš„å †æ ˆè·Ÿè¸ªä¿¡æ¯
 	 * @param s
 	 */
 	public void printAllStackTrace(PrintStream s) {

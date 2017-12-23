@@ -1,7 +1,7 @@
 package com.zyj.exception.util;
 
 /**
- * Ä¬ÈÏÒì³£¸ñÊ½»¯¹¤¾ß
+ * é»˜è®¤å¼‚å¸¸ä¿¡æ¯æ ¼å¼åŒ–å·¥å…·
  * @author zengyuanjun
  *
  */
@@ -19,7 +19,7 @@ public class DefaultExceptionMsgHandler implements ExceptionMessageFormat {
 	}
 	
 	/**
-	 * ¸ñÊ½»¯Òì³£ĞÅÏ¢
+	 * æ ¼å¼åŒ–å¼‚å¸¸ä¿¡æ¯
 	 */
 	@Override
 	public String formate(Exception e) {

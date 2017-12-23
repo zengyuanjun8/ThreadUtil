@@ -22,10 +22,10 @@ public class TestCase implements Runnable {
 	
 	@Override
 	public void run() {
-		// ģ���׳��쳣
-		if(name.equals("Thread - 1") || name.equals("Thread - 3"))
+		// 模拟线程1和线程3抛出异常
+		if(name.equals("1") || name.equals("3"))
 			throw new RuntimeException(name + ": throw exception");
-		result.put(name, "complete successfully!");
+		result.put(name, "complete part " + name + "!");
 	}
 	
 	public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class TestCase implements Runnable {
 		MultiThreadHandler handler = new ParallelTaskWithThreadPool(service);
 		TestCase task = null;
 		for(int i=1; i<=5 ; i++){
-			task = new TestCase("Thread - " + i, resultMap);
+			task = new TestCase("" + i, resultMap);
 			handler.addTask(task);
 		}
 		try {

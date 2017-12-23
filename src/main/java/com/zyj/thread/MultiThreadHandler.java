@@ -3,18 +3,18 @@ package com.zyj.thread;
 import com.zyj.exception.ChildThreadException;
 
 /**
- * ¶àÏß³ÌÈÎÎñ´¦Àí
+ * å¤šä»»åŠ¡å¤„ç†
  * @author zengyuanjun
  */
 public interface MultiThreadHandler {
 	/**
-	 * Ìí¼ÓÈÎÎñ
-	 * @param tasks ÈÎÎñ
+	 * æ·»åŠ ä»»åŠ¡
+	 * @param tasks 
 	 */
 	void addTask(Runnable... tasks);
 	/**
-	 * ÔËĞĞÈÎÎñ
-	 * @throws ChildThreadException ×ÓÏß³ÌÒì³£
+	 * æ‰§è¡Œä»»åŠ¡
+	 * @throws ChildThreadException 
 	 */
 	void run() throws ChildThreadException;
 }

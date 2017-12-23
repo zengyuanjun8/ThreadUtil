@@ -5,7 +5,7 @@ import com.zyj.exception.util.ExceptionMessageFormat;
 import com.zyj.exception.util.StackTraceMsgHandler;
 
 /**
- * Òì³£ĞÅÏ¢¸ñÊ½»¯¹¤³§
+ * å¼‚å¸¸ä¿¡æ¯æ ¼å¼åŒ–å·¥å‚
  * 
  * @author zengyuanjun
  *
@@ -26,7 +26,7 @@ public class ExceptionMsgFormatFactory {
 	}
 
 	/**
-	 * »ñÈ¡¸ñÊ½»¯¹¤¾ß
+	 * è·å–æ ¼å¼åŒ–å·¥å…·
 	 * 
 	 * @param formatterName
 	 * @return
