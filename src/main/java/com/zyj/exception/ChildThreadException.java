@@ -84,7 +84,7 @@ public class ChildThreadException extends Exception {
 	}
 
 	/**
-	 * 清楚子线程的异常列表
+	 * 清空子线程的异常列表
 	 */
 	public void clearExceptionList() {
 		exceptionList.clear();
